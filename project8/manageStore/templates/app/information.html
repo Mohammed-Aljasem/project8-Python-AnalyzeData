@@ -1,0 +1,99 @@
+{% extends 'app/index.html' %}
+{% block content %}
+<script>
+​
+</script>
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header">
+            <h2 class="pageheader-title">
+                Information
+            </h2>
+        </div>
+    </div>
+</div>
+​
+<div class="ecommerce-widget">
+    <div class="row">
+​
+​
+        <!-- ============================================================== -->
+        <!-- Start Table  -->
+        <!-- ============================================================== -->
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">{{data_source_name}}</h5>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table table-striped"
+                                           role="grid">
+                                        <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0"
+                                                rowspan="1" colspan="1" aria-sort="ascending"
+                                                aria-label="Name: activate to sort column descending"
+                                                style="width: 50.2px;">ID
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Position: activate to sort column ascending"
+                                                style="width: 67px;">Data Source Name
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Office: activate to sort column ascending"
+                                                style="width: 45.4px;">File Name
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Age: activate to sort column ascending"
+                                                style="width: 26.2px;">execution time
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Start date: activate to sort column ascending"
+                                                style="width: 55.8px;">Number of records
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Salary: activate to sort column ascending"
+                                                style="width: 51.2px;">Time Created
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for manageStores in manageStore %}
+                                        {% for Id in manageStoreId %}
+                                        {%if manageStores.id == Id.id %}
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">{{manageStores.id}}</td>
+                                            <td>{{manageStores.data_source_name}}</td>
+                                            <td>{{manageStores.file_name}}</td>
+                                            <td>{{manageStores.execution_time}}</td>
+                                            <td>{{manageStores.number_of_records}}</td>
+                                            <td>{{manageStores.created}}</td>
+                                        </tr>
+                                        {%endif%}
+                                        {% endfor %}
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Table  -->
+    <!-- ============================================================== -->
+</div>
+</div>
+
+{% endblock %}

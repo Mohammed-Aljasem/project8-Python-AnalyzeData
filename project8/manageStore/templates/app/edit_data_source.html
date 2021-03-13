@@ -1,0 +1,43 @@
+{% extends 'app/index.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="page-header">
+      <h2 class="pageheader-title">
+        Update Manage Source
+      </h2>
+    </div>
+  </div>
+</div>
+<!-- ============================================================== -->
+<!-- end pageheader  -->
+<!-- ============================================================== -->
+<div class="ecommerce-widget">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="card">
+        <h5 class="card-header">Data Source</h5>
+        <div class="card-body">
+          <form action="{% url "updateDataSource" %}" id="basicform" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ dataSource.id }}">
+            <div class="form-group">
+              <label for="inputUserName">Update Source</label>
+              <input type="text" name="name" value="{{dataSource.name}}" placeholder="Enter Data Source" class="form-control">
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6 pl-0">
+                <p class="text-right">
+                  <button type="submit" class="btn btn-space btn-primary">Update
+                  </button>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
